@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import perguntas from "./perguntas";
 import Card from "./Card";
 

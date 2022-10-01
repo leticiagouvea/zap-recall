@@ -32,9 +32,8 @@ const CardFechado = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     p {
-    font-family: 'Recursive';
-    font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;

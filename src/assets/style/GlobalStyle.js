@@ -27,6 +27,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'Recursive';
+	font-weight: 400;
 }
 ol, ul {
 	list-style: none;
