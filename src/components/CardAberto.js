@@ -1,8 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
 import setavirar from "../assets/img/setavirar.png";
+import iconeCerto from "../assets/img/iconecerto.png";
+import iconeErro from "../assets/img/iconeerro.png";
+import iconeQuase from "../assets/img/iconequase.png";
 
-export default function CardAberto({ id, pergunta, resposta }) {
+
+export default function CardAberto({ id, pergunta, resposta, setCard, setConcluido, setIcone }) {
     const [virar, setVirar] = useState(true);
 
     return (
@@ -17,15 +21,27 @@ export default function CardAberto({ id, pergunta, resposta }) {
                 <CardVirado>
                     <p>{resposta}</p>
                     <Botoes>
-                        <div className="nao-lembrei">
+                        <div className="nao-lembrei" onClick={() => {
+                            setConcluido("p vermelho-riscado");
+                            setCard(true);
+                            setIcone(iconeErro);
+                        }}>
                             <p>Não lembrei</p>
                         </div>
 
-                        <div className="quase-lembrei">
-                            <p>Quase lembrei</p>
+                        <div className="quase" onClick={() => {
+                            setConcluido("p laranja-riscado");
+                            setCard(true);
+                            setIcone(iconeQuase);
+                        }}>
+                            <p>Quase não lembrei</p>
                         </div>
 
-                        <div className="zap">
+                        <div className="zap" onClick={() => {
+                            setConcluido("p verde-riscado");
+                            setCard(true);
+                            setIcone(iconeCerto);
+                        }}>
                             <p>Zap!</p>
                         </div>
                     </Botoes>
@@ -55,6 +71,7 @@ const CardVirado = styled.div`
     position: absolute;
     bottom: 10px;
     right: 10px;
+    cursor: pointer;
 }
 `
 
@@ -78,12 +95,13 @@ const Botoes = styled.div`
     border-radius: 5px;
     padding: 5px;
     line-height: 14px;
+    cursor: pointer;
     }
 
     .nao-lembrei {
         background-color: #FF3030;
     }
-    .quase-lembrei {
+    .quase {
         background-color: #FF922E;
     }
     .zap {

@@ -5,17 +5,19 @@ import CardAberto from "./CardAberto";
 
 export default function Card({numero, id, pergunta, resposta}) {
     const [card, setCard] = useState(true);
+    const [concluido, setConcluido] = useState("p");
+    const [icone, setIcone] = useState(setaplay);
 
     return (
         <>
         {card ? (
             <CardFechado>
-                <p>Pergunta {numero + 1}</p>
-                <img src={setaplay} alt="play" onClick={() => setCard(!card)} />
+                <p className={concluido}> Pergunta {numero + 1} </p>
+                <img src={icone} alt="play" onClick={() => setCard(!card)} />
             </CardFechado>
         ) : 
         (
-            <CardAberto id={id} pergunta={pergunta} resposta={resposta} />
+            <CardAberto id={id} pergunta={pergunta} resposta={resposta} setCard={setCard} setConcluido={setConcluido} setIcone={setIcone} />
         )}
         </>
     )
@@ -38,5 +40,22 @@ const CardFechado = styled.div`
     font-size: 16px;
     line-height: 19px;
     color: #333333;
+    }
+
+    img {
+        cursor: pointer;
+    }
+
+    .vermelho-riscado {
+        color: #FF3030;
+        text-decoration: line-through;
+    }
+    .laranja-riscado {
+        color: #FF922E;
+        text-decoration: line-through;
+    }
+    .verde-riscado {
+        color: #2FBE34;
+        text-decoration: line-through;
     }
 `
