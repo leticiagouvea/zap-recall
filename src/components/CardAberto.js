@@ -6,7 +6,7 @@ import iconeErro from "../assets/img/iconeerro.png";
 import iconeQuase from "../assets/img/iconequase.png";
 
 
-export default function CardAberto({id, pergunta, resposta, setCard, setConcluido, setIcone, contador, setContador}) {
+export default function CardAberto({id, pergunta, resposta, setCard, setConcluido, setIcone, contador, setContador, resultado, setResultado, setDesativarClick}) {
     const [virar, setVirar] = useState(true);
 
     return (
@@ -26,6 +26,9 @@ export default function CardAberto({id, pergunta, resposta, setCard, setConcluid
                             setCard(true);
                             setIcone(iconeErro);
                             setContador(contador + 1);
+                            const novoResultado = [...resultado, {icone: iconeErro}];
+                            setResultado(novoResultado);
+                            setDesativarClick(true);
                         }}>
                             <p>Não lembrei</p>
                         </div>
@@ -35,6 +38,9 @@ export default function CardAberto({id, pergunta, resposta, setCard, setConcluid
                             setCard(true);
                             setIcone(iconeQuase);
                             setContador(contador + 1);
+                            const novoResultado = [...resultado, {icone: iconeQuase}];
+                            setResultado(novoResultado);
+                            setDesativarClick(true);
                         }}>
                             <p>Quase não lembrei</p>
                         </div>
@@ -44,6 +50,9 @@ export default function CardAberto({id, pergunta, resposta, setCard, setConcluid
                             setCard(true);
                             setIcone(iconeCerto);
                             setContador(contador + 1);
+                            const novoResultado = [...resultado, {icone: iconeCerto}];
+                            setResultado(novoResultado);
+                            setDesativarClick(true);
                         }}>
                             <p>Zap!</p>
                         </div>

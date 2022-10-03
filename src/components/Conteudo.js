@@ -6,6 +6,7 @@ import Rodape from "./Rodape";
 
 export default function Conteudo() {
     const [contador, setContador] = useState(0);
+    const [resultado, setResultado] = useState([]);
 
     return (
         <Tela>
@@ -14,8 +15,8 @@ export default function Conteudo() {
                 <h1>ZapRecall</h1>
             </LogoConteudo>
 
-            <Deck contador={contador} setContador={setContador} />
-            <Rodape contador={contador} setContador={setContador} />
+            <Deck contador={contador} setContador={setContador} resultado={resultado} setResultado={setResultado} />
+            <Rodape contador={contador} setContador={setContador} resultado={resultado} />
         </Tela>
     )
 }

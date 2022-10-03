@@ -3,27 +3,28 @@ import styled from "styled-components";
 import setaplay from "../assets/img/setaplay.png";
 import CardAberto from "./CardAberto";
 
-export default function Card({numero, id, pergunta, resposta, contador, setContador}) {
+export default function Card({numero, id, pergunta, resposta, contador, setContador, resultado, setResultado}) {
     const [card, setCard] = useState(true);
     const [concluido, setConcluido] = useState("p");
     const [icone, setIcone] = useState(setaplay);
+    const [desativarClick, setDesativarClick] = useState(false);
 
     return (
         <>
         {card ? (
-            <CardFechado>
+            <CardFechado disabled={desativarClick} onClick={() => setCard(!card)}>
                 <p className={concluido}> Pergunta {numero + 1} </p>
-                <img src={icone} alt="play" onClick={() => setCard(!card)} />
+                <img src={icone} alt="play" />
             </CardFechado>
         ) : 
         (
-            <CardAberto id={id} pergunta={pergunta} resposta={resposta} setCard={setCard} setConcluido={setConcluido} setIcone={setIcone} contador={contador} setContador={setContador} />
+            <CardAberto id={id} pergunta={pergunta} resposta={resposta} setCard={setCard} setConcluido={setConcluido} setIcone={setIcone} contador={contador} setContador={setContador} resultado={resultado} setResultado={setResultado} setDesativarClick={setDesativarClick} />
         )}
         </>
     )
 }
 
-const CardFechado = styled.div`
+const CardFechado = styled.button`
     width: 300px;
     height: 65px;
     background-color: #FFFFFF;
@@ -34,6 +35,7 @@ const CardFechado = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: none;
 
     p {
     font-weight: 700;

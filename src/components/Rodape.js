@@ -1,16 +1,13 @@
 import styled from "styled-components";
-import iconeCerto from "../assets/img/iconecerto.png";
-import iconeErro from "../assets/img/iconeerro.png";
-import iconeQuase from "../assets/img/iconequase.png";
 
-export default function Rodape({contador}) {
+export default function Rodape({contador, resultado}) {
     return (
         <Concluidos>
             <h1>{contador}/8 concluídos</h1>
             <Icones>
-                <img src={iconeErro} alt="não lembrei" />
-                <img src={iconeQuase} alt="quase não lembrei" />
-                <img src={iconeCerto} alt="zap" />
+                {resultado.map((value, index) => (
+                    <img src={value.icone} key={index} alt={value.icone} />
+                ))}
             </Icones>
         </Concluidos>
     )
@@ -18,8 +15,8 @@ export default function Rodape({contador}) {
 
 const Concluidos = styled.div`
     width: 100%;
-    min-height: 60px;
-    background: linear-gradient(90deg, #FB6B6B 0%, #FFFFFF 70%);
+    min-height: 80px;
+    background: linear-gradient(90deg, #FB6B6B 0%, #FFFFFF 80%);
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.15);
     position: fixed;
     bottom: 0;
@@ -30,7 +27,6 @@ const Concluidos = styled.div`
     justify-content: center;
     font-size: 18px;
     color: #333333;
-    padding: 14px;
 
     h1 {
         text-transform: uppercase;
@@ -38,13 +34,12 @@ const Concluidos = styled.div`
 `
 
 const Icones = styled.div`
-    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 12px 0px 2px 0px;
 
     img {
-        margin-right: 10px;
+        width: 20px;
+        margin: 10px 5px 0px 5px;
     }
 `
