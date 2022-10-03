@@ -3,10 +3,10 @@ import iconeCerto from "../assets/img/iconecerto.png";
 import iconeErro from "../assets/img/iconeerro.png";
 import iconeQuase from "../assets/img/iconequase.png";
 
-export default function Rodape() {
+export default function Rodape({contador}) {
     return (
         <Concluidos>
-            <h1>0/8 concluídos</h1>
+            <h1>{contador}/8 concluídos</h1>
             <Icones>
                 <img src={iconeErro} alt="não lembrei" />
                 <img src={iconeQuase} alt="quase não lembrei" />
@@ -19,7 +19,6 @@ export default function Rodape() {
 const Concluidos = styled.div`
     width: 100%;
     min-height: 60px;
-    background-color: #FFFFFF;
     background: linear-gradient(90deg, #FB6B6B 0%, #FFFFFF 70%);
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.15);
     position: fixed;

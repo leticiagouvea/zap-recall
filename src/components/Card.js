@@ -3,7 +3,7 @@ import styled from "styled-components";
 import setaplay from "../assets/img/setaplay.png";
 import CardAberto from "./CardAberto";
 
-export default function Card({numero, id, pergunta, resposta}) {
+export default function Card({numero, id, pergunta, resposta, contador, setContador}) {
     const [card, setCard] = useState(true);
     const [concluido, setConcluido] = useState("p");
     const [icone, setIcone] = useState(setaplay);
@@ -17,7 +17,7 @@ export default function Card({numero, id, pergunta, resposta}) {
             </CardFechado>
         ) : 
         (
-            <CardAberto id={id} pergunta={pergunta} resposta={resposta} setCard={setCard} setConcluido={setConcluido} setIcone={setIcone} />
+            <CardAberto id={id} pergunta={pergunta} resposta={resposta} setCard={setCard} setConcluido={setConcluido} setIcone={setIcone} contador={contador} setContador={setContador} />
         )}
         </>
     )

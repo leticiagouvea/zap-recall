@@ -6,7 +6,7 @@ import iconeErro from "../assets/img/iconeerro.png";
 import iconeQuase from "../assets/img/iconequase.png";
 
 
-export default function CardAberto({ id, pergunta, resposta, setCard, setConcluido, setIcone }) {
+export default function CardAberto({id, pergunta, resposta, setCard, setConcluido, setIcone, contador, setContador}) {
     const [virar, setVirar] = useState(true);
 
     return (
@@ -25,6 +25,7 @@ export default function CardAberto({ id, pergunta, resposta, setCard, setConclui
                             setConcluido("p vermelho-riscado");
                             setCard(true);
                             setIcone(iconeErro);
+                            setContador(contador + 1);
                         }}>
                             <p>Não lembrei</p>
                         </div>
@@ -33,6 +34,7 @@ export default function CardAberto({ id, pergunta, resposta, setCard, setConclui
                             setConcluido("p laranja-riscado");
                             setCard(true);
                             setIcone(iconeQuase);
+                            setContador(contador + 1);
                         }}>
                             <p>Quase não lembrei</p>
                         </div>
@@ -41,6 +43,7 @@ export default function CardAberto({ id, pergunta, resposta, setCard, setConclui
                             setConcluido("p verde-riscado");
                             setCard(true);
                             setIcone(iconeCerto);
+                            setContador(contador + 1);
                         }}>
                             <p>Zap!</p>
                         </div>

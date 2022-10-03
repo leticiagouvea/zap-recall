@@ -1,9 +1,12 @@
+import { useState } from "react";
 import styled from "styled-components";
 import logo from "../assets/img/logo.png";
-import Cards from "./Cards";
+import Deck from "./Deck";
 import Rodape from "./Rodape";
 
 export default function Conteudo() {
+    const [contador, setContador] = useState(0);
+
     return (
         <Tela>
             <LogoConteudo>
@@ -11,8 +14,8 @@ export default function Conteudo() {
                 <h1>ZapRecall</h1>
             </LogoConteudo>
 
-            <Cards />
-            <Rodape />
+            <Deck contador={contador} setContador={setContador} />
+            <Rodape contador={contador} setContador={setContador} />
         </Tela>
     )
 }
