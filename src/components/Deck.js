@@ -2,12 +2,6 @@ import perguntas from "./perguntas";
 import Card from "./Card";
 
 export default function Deck({contador, setContador, resultado, setResultado}) {
-    
-    perguntas.sort(comparador);
-    function comparador() {
-        return Math.random() - 0.5;
-    }
-
     return (
         <>
             {perguntas.map((value, index) => (
